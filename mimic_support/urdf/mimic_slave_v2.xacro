@@ -28,30 +28,7 @@
             </collision>   
         </link>
 
-        <link name="base_10">
-            <inertial>
-                <origin xyz="0 0 0" rpy="0 0 0"/>
-                <mass value="2"/>
-                <inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01" />
-            </inertial>
-            <visual>
-                <origin xyz="0 0 0" rpy="0 0 0"/>
-                <geometry>
-                <mesh filename="package://mimic_support/meshes/visual/positioner.dae" scale="0.001 0.001 0.001"/>
-                </geometry>
-            </visual>
-            <collision>
-                <origin xyz="0 0 0" rpy="0 0 0"/>
-                <geometry>
-                <mesh filename="package://mimic_support/meshes/collision/positioner.stl" scale="0.001 0.001 0.001"/>
-                </geometry>
-            </collision>   
-        </link>
-
-
-
-
-
+  
         
 
         <joint name="world-ersysroot_joint" type="fixed">
@@ -83,12 +60,6 @@
             <child link="ktig_eef" />
             <origin xyz="0.0811 0.04116 0.4408" rpy="${radians(-179.61)} ${radians(-41.39)} ${radians(-153.95)}" />
             <!-- <origin xyz="0.121 0.05578 0.5307" rpy="${radians(0)} ${radians(-19.95)} ${radians(24.259)}" /> -->
-        </joint>
-
-        <joint name="world-base_10" type="fixed">
-            <parent link="world" />
-            <child link="base_10" />
-            <origin xyz="4.6629 2.5080 -8.7763" rpy="${radians(0.58)} ${radians(0.15)} ${radians(0.35)}" />
         </joint>
 
     </robot>
