@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+    <robot name="mimic_slave" xmlns:xacro="http://ros.org/wiki/xacro">
+
+        <xacro:include filename="gantry.xacro"/>
+        <xacro:include filename="$(find kuka_kr16_support)/urdf/kr16_2.xacro" />
+
+        <link name="world" />
+        <link name="ktig_eef">
+            <inertial>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <mass value="2"/>
+                <inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01" />
+            </inertial>
+            <visual>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <geometry>
+                <mesh filename="package://mimic_support/meshes/visual/ktig_eef_v2.dae" scale="0.001 0.001 0.001"/>
+                </geometry>
+            </visual>
+            <collision>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <geometry>
+                <mesh filename="package://mimic_support/meshes/collision/ktig_eef_v2.stl" scale="0.001 0.001 0.001"/>
+                </geometry>
+            </collision>   
+        </link>
+        
+
+        <joint name="world-gantry_joint" type="fixed">
+            <parent link="world" />
+            <child link="gantry_frame" />
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+        </joint>
+
+        <joint name="gantry-kr16_joint" type="fixed">
+            <parent link="gantry_z" />
+            <child link="base_link" />
+            <origin xyz="0.0 0.0 0.0" rpy="${pi} 0.0 0.0" />
+        </joint>
+
+        <joint name="kr16-ktig_joint" type="fixed">
+            <parent link="tool0" />
+            <child link="ktig_eef" />
+            <origin xyz="0.0811 0.04116 0.4408" rpy="${radians(-179.61)} ${radians(-41.39)} ${radians(-153.95)}" />
+            <!-- <origin xyz="0.121 0.05578 0.5307" rpy="${radians(0)} ${radians(-19.95)} ${radians(24.259)}" /> -->
+
+        </joint>
+
+
+
+
+
+
+
+    </robot>

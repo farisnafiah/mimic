@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<!--Generates a urdf from the macro in gantry_macro.xacro -->
+<robot name="gantry" xmlns:xacro="http://wiki.ros.org/xacro">
+  <xacro:include filename="$(find mimic_support)/urdf/gantry_macro.xacro" />
+  <xacro:gantry prefix=""/>
+</robot>

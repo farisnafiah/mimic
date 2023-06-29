@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <robot xmlns:xacro="http://ros.org/wiki/xacro">
+        <xacro:macro name="gantry" params="prefix">
+            
+            <!-- LINKS -->
+            <link name="${prefix}gantry_frame">
+                <visual>
+                    <origin xyz="0 0 0" rpy="0 0 0"/>
+                    <geometry>
+                    <mesh filename="package://mimic_support/meshes/visual/gantry_frame_c.dae" scale="0.001 0.001 0.001"/>
+                    </geometry>
+                </visual>
+                <collision>
+                    <origin xyz="0 0 0" rpy="0 0 0"/>
+                    <geometry>
+                    <mesh filename="package://mimic_support/meshes/collision/gantry_frame_c.stl" scale="0.001 0.001 0.001"/>
+                    </geometry>
+                </collision>   
+            </link>
+            <link name="${prefix}gantry_x">
+                <inertial>
+                    <origin xyz="0 0 0" rpy="0 0 0"/>
+                    <mass value="2"/>
+                    <inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01" />
+                </inertial>
+                <visual>
+                    <origin xyz="0 0 0" rpy="0 0 0"/>
+                    <geometry>
+                    <mesh filename="package://mimic_support/meshes/visual/gantry_x_c.dae" scale="0.001 0.001 0.001"/>
+                    </geometry>
+                </visual>
+                <collision>
+                    <origin xyz="0 0 0" rpy="0 0 0"/>
+                    <geometry>
+                    <mesh filename="package://mimic_support/meshes/collision/gantry_x_c.stl" scale="0.001 0.001 0.001"/>
+                    </geometry>
+                </collision>   
+            </link>
+            <link name="${prefix}gantry_y">
+                <inertial>
+                    <origin xyz="0 0 0" rpy="0 0 0"/>
+                    <mass value="2"/>
+                    <inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01" />
+                </inertial>
+                <visual>
+                    <origin xyz="0 0 0" rpy="0 0 0"/>
+                    <geometry>
+                    <mesh filename="package://mimic_support/meshes/visual/gantry_y_c.dae" scale="0.001 0.001 0.001"/>
+                    </geometry>
+                </visual>
+                <collision>
+                    <origin xyz="0 0 0" rpy="0 0 0"/>
+                    <geometry>
+                    <mesh filename="package://mimic_support/meshes/collision/gantry_y_c.stl" scale="0.001 0.001 0.001"/>
+                    </geometry>
+                </collision>   
+            </link>
+            <link name="${prefix}gantry_z">
+                <inertial>
+                    <origin xyz="0 0 0" rpy="0 0 0"/>
+                    <mass value="2"/>
+                    <inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01" />
+                </inertial>
+                <visual>
+                    <origin xyz="0 0 0" rpy="0 0 0"/>
+                    <geometry>
+                    <mesh filename="package://mimic_support/meshes/visual/gantry_z_c.dae" scale="0.001 0.001 0.001"/>
+                    </geometry>
+                </visual>
+                <collision>
+                    <origin xyz="0 0 0" rpy="0 0 0"/>
+                    <geometry>
+                    <mesh filename="package://mimic_support/meshes/collision/gantry_z_c.stl" scale="0.001 0.001 0.001"/>
+                    </geometry>
+                </collision>   
+            </link>
+
+            <!-- JOINTS -->
+            <!-- joint e1 (E1) -->
+            <joint name="${prefix}joint_e1" type="prismatic">
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <parent link="${prefix}gantry_frame"/>
+                <child link="${prefix}gantry_x"/>
+                <axis xyz="1 0 0"/>
+                <limit effort="0" lower="-0.011" upper="3" velocity="${radians(156)}"/>
+            </joint>
+            <joint name="${prefix}joint_e2" type="prismatic">
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <parent link="${prefix}gantry_x"/>
+                <child link="${prefix}gantry_y"/>
+                <axis xyz="0 1 0"/>
+                <limit effort="0" lower="-0.015" upper="2.25" velocity="${radians(156)}"/>
+            </joint>
+            <joint name="${prefix}joint_e3" type="prismatic">
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <parent link="${prefix}gantry_y"/>
+                <child link="${prefix}gantry_z"/>
+                <axis xyz="0 0 -1"/>
+                <limit effort="0" lower="-0.011" upper="2.6" velocity="${radians(156)}"/>
+            </joint>
+
+
+        </xacro:macro>
+    </robot>

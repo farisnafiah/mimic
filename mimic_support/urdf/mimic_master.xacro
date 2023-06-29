@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+    <robot name="mimic_slave" xmlns:xacro="http://ros.org/wiki/xacro">
+
+        <xacro:include filename="positioner.xacro"/>
+        <xacro:include filename="$(find kuka_kr20_support)/urdf/kr20_r1810_2.xacro" />
+
+        <link name="world" />
+        
+
+        <joint name="world-kr20" type="fixed">
+            <parent link="world" />
+            <child link="base_link" />
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+        </joint>
+        
+        <joint name="world-positioner" type="fixed">
+            <parent link="world" />
+            <child link="positioner_frame" />
+            <origin xyz="0.87144 1.19321 0.3000" rpy="0.0 0.0 ${radians(50)}" />
+        </joint>
+
+
+
+
+    </robot>

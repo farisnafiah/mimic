@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <robot xmlns:xacro="http://ros.org/wiki/xacro">
+        <xacro:macro name="positioner" params="prefix">
+            
+            <!-- LINKS -->
+            <link name="${prefix}positioner_frame">
+                <visual>
+                    <origin xyz="0 0 0" rpy="0 0 0"/>
+                    <geometry>
+                    <mesh filename="package://mimic_support/meshes/visual/positioner_fixed_nx.dae" scale="0.001 0.001 0.001"/>
+                    </geometry>
+                </visual>
+                <collision>
+                    <origin xyz="0 0 0" rpy="0 0 0"/>
+                    <geometry>
+                    <mesh filename="package://mimic_support/meshes/collision/positioner_fixed_nx.stl" scale="0.001 0.001 0.001"/>
+                    </geometry>
+                </collision>   
+            </link>
+            <link name="${prefix}e1">
+                <inertial>
+                    <origin xyz="0 0 0" rpy="0 0 0"/>
+                    <mass value="2"/>
+                    <inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01" />
+                </inertial>
+                <visual>
+                    <origin xyz="0 0 0" rpy="0 0 0"/>
+                    <geometry>
+                    <mesh filename="package://mimic_support/meshes/visual/e1_nx.dae" scale="0.001 0.001 0.001"/>
+                    </geometry>
+                </visual>
+                <collision>
+                    <origin xyz="0 0 0" rpy="0 0 0"/>
+                    <geometry>
+                    <mesh filename="package://mimic_support/meshes/collision/e1_nx.stl" scale="0.001 0.001 0.001"/>
+                    </geometry>
+                </collision>   
+            </link>
+            <link name="${prefix}e2">
+                <inertial>
+                    <origin xyz="0 0 0" rpy="0 0 0"/>
+                    <mass value="2"/>
+                    <inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01" />
+                </inertial>
+                <visual>
+                    <origin xyz="0 0 0" rpy="0 0 0"/>
+                    <geometry>
+                    <mesh filename="package://mimic_support/meshes/visual/e2_nx.dae" scale="0.001 0.001 0.001"/>
+                    </geometry>
+                </visual>
+                <collision>
+                    <origin xyz="0 0 0" rpy="0 0 0"/>
+                    <geometry>
+                    <mesh filename="package://mimic_support/meshes/collision/e2_nx.stl" scale="0.001 0.001 0.001"/>
+                    </geometry>
+                </collision>   
+            </link>
+            
+            
+            
+            
+            
+            
+
+            <!-- JOINTS -->
+            <!-- joint e1 (E1) -->
+            <joint name="${prefix}joint_e1" type="revolute">
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <parent link="${prefix}positioner_frame"/>
+                <child link="${prefix}e1"/>
+                <axis xyz="1 0 0"/>
+                <limit effort="0" lower="-0.011" upper="3" velocity="${radians(156)}"/>
+            </joint>
+            <joint name="${prefix}joint_e2" type="revolute">
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <parent link="${prefix}e1"/>
+                <child link="${prefix}e2"/>
+                <axis xyz="0 0 1"/>
+                <limit effort="0" lower="-0.015" upper="2.25" velocity="${radians(156)}"/>
+            </joint>
+
+
+
+        </xacro:macro>
+    </robot>

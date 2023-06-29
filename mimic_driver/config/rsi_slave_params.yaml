@@ -1,0 +1,3 @@
+rsi:
+  listen_address: "192.168.1.150"
+  listen_port: 49151

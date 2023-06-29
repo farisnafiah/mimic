@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+    <robot name="mimic_slave" xmlns:xacro="http://ros.org/wiki/xacro">
+
+        <xacro:include filename="gantry.xacro"/>
+        <xacro:include filename="$(find kuka_kr16_support)/urdf/kr16_2.xacro" />
+
+        <link name="world" />
+        <link name="ersysroot" />
+        <link name="robroot" />
+
+        <link name="ktig_eef">
+            <inertial>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <mass value="2"/>
+                <inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01" />
+            </inertial>
+            <visual>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <geometry>
+                <mesh filename="package://mimic_support/meshes/visual/ktig_eef_v2.dae" scale="0.001 0.001 0.001"/>
+                </geometry>
+            </visual>
+            <collision>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <geometry>
+                <mesh filename="package://mimic_support/meshes/collision/ktig_eef_v2.stl" scale="0.001 0.001 0.001"/>
+                </geometry>
+            </collision>   
+        </link>
+
+        <link name="base_10">
+            <inertial>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <mass value="2"/>
+                <inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01" />
+            </inertial>
+            <visual>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <geometry>
+                <mesh filename="package://mimic_support/meshes/visual/positioner.dae" scale="0.001 0.001 0.001"/>
+                </geometry>
+            </visual>
+            <collision>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <geometry>
+                <mesh filename="package://mimic_support/meshes/collision/positioner.stl" scale="0.001 0.001 0.001"/>
+                </geometry>
+            </collision>   
+        </link>
+
+
+
+
+
+        
+
+        <joint name="world-ersysroot_joint" type="fixed">
+            <parent link="world" />
+            <child link="ersysroot" />
+            <origin xyz="3.05880908 1.22416602 -4.98539" rpy="${radians(0.641)} ${radians(0.038)} ${radians(0.211)}" />
+        </joint>
+
+        <joint name="ersysroot-robroot_joint" type="fixed">
+            <parent link="ersysroot" />
+            <child link="robroot" />
+            <origin xyz="0.0 0.0 0.0" rpy="${radians(0.641)} 0.0 0.0" />
+        </joint>
+
+        <joint name="robroot-gantry_joint" type="fixed">
+            <parent link="robroot" />
+            <child link="gantry_frame" />
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+        </joint>
+        
+        <joint name="gantry-kr16_joint" type="fixed">
+            <parent link="gantry_z" />
+            <child link="base_link" />
+            <origin xyz="0.0 0.0 0.0" rpy="${pi} 0.0 0.0" />
+        </joint>
+
+        <joint name="kr16-ktig_joint" type="fixed">
+            <parent link="tool0" />
+            <child link="ktig_eef" />
+            <origin xyz="0.0811 0.04116 0.4408" rpy="${radians(-179.61)} ${radians(-41.39)} ${radians(-153.95)}" />
+            <!-- <origin xyz="0.121 0.05578 0.5307" rpy="${radians(0)} ${radians(-19.95)} ${radians(24.259)}" /> -->
+        </joint>
+
+        <joint name="world-base_10" type="fixed">
+            <parent link="world" />
+            <child link="base_10" />
+            <origin xyz="4.6629 2.5080 -8.7763" rpy="${radians(0.58)} ${radians(0.15)} ${radians(0.35)}" />
+        </joint>
+
+    </robot>
