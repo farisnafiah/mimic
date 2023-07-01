@@ -57,11 +57,6 @@
             </link>
             
             
-            
-            
-            
-            
-
             <!-- JOINTS -->
             <!-- joint e1 (E1) -->
             <joint name="${prefix}joint_e1" type="revolute">
@@ -69,14 +64,14 @@
                 <parent link="${prefix}positioner_frame"/>
                 <child link="${prefix}e1"/>
                 <axis xyz="1 0 0"/>
-                <limit effort="0" lower="-0.011" upper="3" velocity="${radians(156)}"/>
+                <limit effort="21.9" lower="-2.5" upper="117.5" velocity="0.714"/>
             </joint>
             <joint name="${prefix}joint_e2" type="revolute">
                 <origin xyz="0 0 0" rpy="0 0 0"/>
                 <parent link="${prefix}e1"/>
                 <child link="${prefix}e2"/>
                 <axis xyz="0 0 1"/>
-                <limit effort="0" lower="-0.015" upper="2.25" velocity="${radians(156)}"/>
+                <limit effort="21.9" lower="-1800" upper="1800" velocity="0.2575"/>
             </joint>
 
 

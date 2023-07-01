@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+    <robot name="mimic_slave" xmlns:xacro="http://ros.org/wiki/xacro">
+
+        <xacro:include filename="positioner.xacro"/>
+        <xacro:include filename="$(find kuka_kr20_support)/urdf/kr20_r1810_2.xacro" />
+
+        <link name="robroot" />
+        <link name="root_positioner" />
+        
+
+        <joint name="robroot-kr20" type="fixed">
+            <parent link="robroot" />
+            <child link="base_link" />
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+        </joint>
+        
+        <joint name="robroot-root_positioner" type="fixed">
+            <parent link="robroot" />
+            <child link="root_positioner" />
+            <origin xyz="1.207104 0.8091969 -0.57626367" rpy="${radians(-0.349649)} ${radians(0.3569569)} ${radians(51.3477096)}" />
+        </joint>
+        
+        <joint name="robroot-positioner_frame" type="fixed">
+            <parent link="robroot" />
+            <child link="positioner_frame" />
+            <origin xyz="1.1932095 0.87143687 0.3" rpy="${radians(-0.349649)} ${radians(0.3569569)} ${radians(51.3477096)}"  />
+        </joint>
+
+
+
+
+
+    </robot>

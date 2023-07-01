@@ -43,8 +43,8 @@
             <origin xyz="0.0 0.0 0.0" rpy="${radians(0.641)} 0.0 0.0" />
         </joint>
 
-        <joint name="robroot-gantry_joint" type="fixed">
-            <parent link="robroot" />
+        <joint name="ersysroot-gantry_joint" type="fixed">
+            <parent link="ersysroot" />
             <child link="gantry_frame" />
             <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
         </joint>

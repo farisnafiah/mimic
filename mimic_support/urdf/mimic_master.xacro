@@ -16,7 +16,10 @@
         <joint name="world-positioner" type="fixed">
             <parent link="world" />
             <child link="positioner_frame" />
-            <origin xyz="0.87144 1.19321 0.3000" rpy="0.0 0.0 ${radians(50)}" />
+            <!-- <origin xyz="0.8714369 1.1932095 0.3000" rpy="0.0 0.0 ${radians(50)}" /> -->
+            <!-- <origin xyz="1.1932095 0.8714369 0.3000" rpy="0.0 0.0 ${radians(50)}" /> -->
+            <!-- <origin xyz="1.1932095 1.171426018 0.3000" rpy="0.0 0.0 ${radians(50)}" /> -->
+            <origin xyz="0.0994209235 1.4742 0.3000" rpy="0.0 0.0 ${radians(50)}" />
         </joint>
 
 
