@@ -8,3 +8,5 @@ CMakeLists.txt
 industrial_core/
 
 kuka_experimental/
+
+cartesian_controllers/

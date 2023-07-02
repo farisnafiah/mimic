@@ -1,0 +1,35 @@
+my_cartesian_motion_controller:
+    type: "position_controllers/CartesianMotionController"
+    end_effector_link: "tool0"
+    robot_base_link: "base_link"
+    target_frame_topic: "target_frame"
+    joints:
+    - joint_a1
+    - joint_a2
+    - joint_a3
+    - joint_a4
+    - joint_a5
+    - joint_a6
+
+    pd_gains:
+        trans_x: {p: 10.0}
+        trans_y: {p: 10.0}
+        trans_z: {p: 10.0}
+        rot_x: {p: 1.0}
+        rot_y: {p: 1.0}
+        rot_z: {p: 1.0}
+
+
+joint_trajectory_controller:
+    type: "position_controllers/JointTrajectoryController"
+    joints:
+    - joint1
+    - joint2
+    - joint3
+    - joint4
+    - joint5
+    - joint6
+
+joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50

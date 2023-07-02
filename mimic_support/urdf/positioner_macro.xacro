@@ -64,14 +64,14 @@
                 <parent link="${prefix}positioner_frame"/>
                 <child link="${prefix}e1"/>
                 <axis xyz="1 0 0"/>
-                <limit effort="21.9" lower="-2.5" upper="117.5" velocity="0.714"/>
+                <limit effort="21.9" lower="${radians(-2.5)}" upper="${radians(117.5)}" velocity="0.714"/>
             </joint>
             <joint name="${prefix}joint_e2" type="revolute">
                 <origin xyz="0 0 0" rpy="0 0 0"/>
                 <parent link="${prefix}e1"/>
                 <child link="${prefix}e2"/>
                 <axis xyz="0 0 1"/>
-                <limit effort="21.9" lower="-1800" upper="1800" velocity="0.2575"/>
+                <limit effort="21.9" lower="${radians(-1800)}" upper="${radians(1800)}" velocity="0.2575"/>
             </joint>
 
 

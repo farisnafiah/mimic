@@ -9,6 +9,10 @@
 
       <rosparam file="$(find mimic_driver)/config/rsi_master_params_sim.yaml" command="load" if="$(arg sim)"/>
       <rosparam file="$(find mimic_driver)/config/rsi_master_params.yaml" command="load" unless="$(arg sim)"/>
+      
+      <!-- Load hardware configuration -->
+      <rosparam file="$(find mimic_cartesian_controllers)/config/master_hw_config.yaml" command="load"></rosparam>
+
 
       <!-- Start node without FT sensor -->
       <node name="kuka_hardware_interface" pkg="kuka_rsi_hw_interface"
@@ -17,15 +21,16 @@
         required="true"/>
         
       <!-- Load joint controller configurations from YAML file to parameter server -->
-      <rosparam file="$(find mimic_driver)/config/hardware_controllers_master.yaml" command="load"/>
+      <rosparam file="$(find mimic_cartesian_controllers)/config/master_controllers.yaml" command="load"/>
       <!-- Load standard kuka controller joint names from YAML file to parameter server -->
-      <rosparam file="$(find mimic_driver)/config/controller_joint_names_master.yaml" command="load"/>
+      <rosparam file="$(find mimic_cartesian_controllers)/config/master_joint_names.yaml" command="load"/>
+
 
       <!-- Load controllers -->
       <node name="joint_state_controller" pkg="controller_manager" type="spawner" respawn="false" output="screen"
           args="joint_state_controller"/>
       <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen"
-          args="--stopped position_trajectory_controller"/>
+          args="--stopped my_cartesian_motion_controller"/>
       <!-- Load robot state publisher -->
       <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
 
