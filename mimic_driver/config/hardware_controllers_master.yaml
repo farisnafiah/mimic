@@ -17,3 +17,5 @@ position_trajectory_controller:
     - joint_e2
   state_publish_rate: 250 # Defaults to 50
   action_monitor_rate: 20 # Defaults to 20
+  
+

@@ -1,3 +1,24 @@
+#Publish all joint states
+joint_state_controller:
+  type: joint_state_controller/JointStateController
+  publish_rate: 250
+
+# Joint trajectory controller
+position_trajectory_controller:
+  type: "position_controllers/JointTrajectoryController"
+  joints:
+    - joint_a1
+    - joint_a2
+    - joint_a3
+    - joint_a4
+    - joint_a5
+    - joint_a6
+    - joint_e1
+    - joint_e2
+  state_publish_rate: 250 # Defaults to 50
+  action_monitor_rate: 20 # Defaults to 20
+  
+  
 my_cartesian_motion_controller:
     type: "position_controllers/CartesianMotionController"
     end_effector_link: "tool0"
@@ -18,18 +39,3 @@ my_cartesian_motion_controller:
         rot_x: {p: 1.0}
         rot_y: {p: 1.0}
         rot_z: {p: 1.0}
-
-
-joint_trajectory_controller:
-    type: "position_controllers/JointTrajectoryController"
-    joints:
-    - joint1
-    - joint2
-    - joint3
-    - joint4
-    - joint5
-    - joint6
-
-joint_state_controller:
-    type: joint_state_controller/JointStateController
-    publish_rate: 50
