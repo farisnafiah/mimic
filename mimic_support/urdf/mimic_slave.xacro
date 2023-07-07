@@ -1,11 +1,14 @@
 <?xml version="1.0"?>
     <robot name="mimic_slave" xmlns:xacro="http://ros.org/wiki/xacro">
+        <xacro:property name="prefix" value="slave_" />
 
-        <xacro:include filename="gantry.xacro"/>
-        <xacro:include filename="$(find kuka_kr16_support)/urdf/kr16_2.xacro" />
+        <xacro:include filename="gantry_macro.xacro"/>
+        <xacro:gantry  prefix="${prefix}"/>
+        <xacro:include filename="$(find kuka_kr16_support)/urdf/kr16_2_macro.xacro"/>
+        <xacro:kuka_kr16_2  prefix="${prefix}"/>
 
-        <link name="world" />
-        <link name="ktig_eef">
+        <link name="${prefix}world" />
+        <link name="${prefix}ktig_eef">
             <inertial>
                 <origin xyz="0 0 0" rpy="0 0 0"/>
                 <mass value="2"/>
@@ -26,24 +29,23 @@
         </link>
         
 
-        <joint name="world-gantry_joint" type="fixed">
-            <parent link="world" />
-            <child link="gantry_frame" />
+        <joint name="${prefix}world-${prefix}gantry_joint" type="fixed">
+            <parent link="${prefix}world" />
+            <child link="${prefix}gantry_frame" />
             <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
         </joint>
 
-        <joint name="gantry-kr16_joint" type="fixed">
-            <parent link="gantry_z" />
-            <child link="base_link" />
+        <joint name="${prefix}gantry-${prefix}kr16_joint" type="fixed">
+            <parent link="${prefix}gantry_z" />
+            <child link="${prefix}base_link" />
             <origin xyz="0.0 0.0 0.0" rpy="${pi} 0.0 0.0" />
         </joint>
 
-        <joint name="kr16-ktig_joint" type="fixed">
-            <parent link="tool0" />
-            <child link="ktig_eef" />
+        <joint name="${prefix}kr16-${prefix}ktig_joint" type="fixed">
+            <parent link="${prefix}tool0" />
+            <child link="${prefix}ktig_eef" />
             <origin xyz="0.0811 0.04116 0.4408" rpy="${radians(-179.61)} ${radians(-41.39)} ${radians(-153.95)}" />
             <!-- <origin xyz="0.121 0.05578 0.5307" rpy="${radians(0)} ${radians(-19.95)} ${radians(24.259)}" /> -->
-
         </joint>
 
 

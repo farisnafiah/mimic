@@ -7,13 +7,13 @@
                 <visual>
                     <origin xyz="0 0 0" rpy="0 0 0"/>
                     <geometry>
-                    <mesh filename="package://mimic_support/meshes/visual/gantry_frame_c.dae" scale="0.001 0.001 0.001"/>
+                    <mesh filename="package://mimic_support/meshes/visual/gantry_fixed.dae" scale="0.001 0.001 0.001"/>
                     </geometry>
                 </visual>
                 <collision>
                     <origin xyz="0 0 0" rpy="0 0 0"/>
                     <geometry>
-                    <mesh filename="package://mimic_support/meshes/collision/gantry_frame_c.stl" scale="0.001 0.001 0.001"/>
+                    <mesh filename="package://mimic_support/meshes/collision/gantry_fixed.stl" scale="0.001 0.001 0.001"/>
                     </geometry>
                 </collision>   
             </link>
@@ -26,13 +26,13 @@
                 <visual>
                     <origin xyz="0 0 0" rpy="0 0 0"/>
                     <geometry>
-                    <mesh filename="package://mimic_support/meshes/visual/gantry_x_c.dae" scale="0.001 0.001 0.001"/>
+                    <mesh filename="package://mimic_support/meshes/visual/gantry_x.dae" scale="0.001 0.001 0.001"/>
                     </geometry>
                 </visual>
                 <collision>
                     <origin xyz="0 0 0" rpy="0 0 0"/>
                     <geometry>
-                    <mesh filename="package://mimic_support/meshes/collision/gantry_x_c.stl" scale="0.001 0.001 0.001"/>
+                    <mesh filename="package://mimic_support/meshes/collision/gantry_x.stl" scale="0.001 0.001 0.001"/>
                     </geometry>
                 </collision>   
             </link>
@@ -45,13 +45,13 @@
                 <visual>
                     <origin xyz="0 0 0" rpy="0 0 0"/>
                     <geometry>
-                    <mesh filename="package://mimic_support/meshes/visual/gantry_y_c.dae" scale="0.001 0.001 0.001"/>
+                    <mesh filename="package://mimic_support/meshes/visual/gantry_y.dae" scale="0.001 0.001 0.001"/>
                     </geometry>
                 </visual>
                 <collision>
                     <origin xyz="0 0 0" rpy="0 0 0"/>
                     <geometry>
-                    <mesh filename="package://mimic_support/meshes/collision/gantry_y_c.stl" scale="0.001 0.001 0.001"/>
+                    <mesh filename="package://mimic_support/meshes/collision/gantry_y.stl" scale="0.001 0.001 0.001"/>
                     </geometry>
                 </collision>   
             </link>
@@ -64,13 +64,13 @@
                 <visual>
                     <origin xyz="0 0 0" rpy="0 0 0"/>
                     <geometry>
-                    <mesh filename="package://mimic_support/meshes/visual/gantry_z_c.dae" scale="0.001 0.001 0.001"/>
+                    <mesh filename="package://mimic_support/meshes/visual/gantry_z.dae" scale="0.001 0.001 0.001"/>
                     </geometry>
                 </visual>
                 <collision>
                     <origin xyz="0 0 0" rpy="0 0 0"/>
                     <geometry>
-                    <mesh filename="package://mimic_support/meshes/collision/gantry_z_c.stl" scale="0.001 0.001 0.001"/>
+                    <mesh filename="package://mimic_support/meshes/collision/gantry_z.stl" scale="0.001 0.001 0.001"/>
                     </geometry>
                 </collision>   
             </link>
@@ -78,21 +78,21 @@
             <!-- JOINTS -->
             <!-- joint e1 (E1) -->
             <joint name="${prefix}joint_e1" type="prismatic">
-                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <origin xyz="0.011 0 0" rpy="0 0 0"/>
                 <parent link="${prefix}gantry_frame"/>
                 <child link="${prefix}gantry_x"/>
                 <axis xyz="1 0 0"/>
                 <limit effort="21.9" lower="-0.011" upper="3.0" velocity="0.83"/>
             </joint>
             <joint name="${prefix}joint_e2" type="prismatic">
-                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <origin xyz="0 0.015 0" rpy="0 0 0"/>
                 <parent link="${prefix}gantry_x"/>
                 <child link="${prefix}gantry_y"/>
                 <axis xyz="0 1 0"/>
                 <limit effort="24.4" lower="-0.015" upper="2.25" velocity="1.25"/>
             </joint>
             <joint name="${prefix}joint_e3" type="prismatic">
-                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <origin xyz="0 0 0.011" rpy="0 0 0"/>
                 <parent link="${prefix}gantry_y"/>
                 <child link="${prefix}gantry_z"/>
                 <axis xyz="0 0 -1"/>
