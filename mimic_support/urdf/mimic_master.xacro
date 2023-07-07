@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
     <robot name="mimic_slave" xmlns:xacro="http://ros.org/wiki/xacro">
-        <xacro:property name="prefix" value="master_" />
+        <xacro:property name="prefix" value="" />
 
         <xacro:include filename="positioner_macro.xacro"/>
         <xacro:positioner prefix="${prefix}"/>

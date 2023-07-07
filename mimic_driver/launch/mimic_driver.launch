@@ -14,12 +14,11 @@
       <node name="kuka_hardware_interface" pkg="kuka_rsi_hw_interface"
         type="kuka_hardware_interface_node" respawn="false"
         output="screen"
-        required="true"/>
+        required="true">
+      </node>
         
       <!-- Load joint controller configurations from YAML file to parameter server -->
       <rosparam file="$(find mimic_driver)/config/hardware_controllers_master2.yaml" command="load"/>
-      <!-- Load standard kuka controller joint names from YAML file to parameter server -->
-      <rosparam file="$(find mimic_driver)/config/controller_joint_names_master2.yaml" command="load"/>
 
       <!-- Load controllers -->
       <node name="joint_state_controller" pkg="controller_manager" type="spawner" respawn="false" output="screen"
@@ -43,12 +42,11 @@
       <node name="kuka_hardware_interface" pkg="kuka_rsi_hw_interface"
         type="kuka_hardware_interface_node" respawn="false"
         output="screen"
-        required="true"/>
+        required="true">
+      </node>
         
       <!-- Load joint controller configurations from YAML file to parameter server -->
       <rosparam file="$(find mimic_driver)/config/hardware_controllers_slave2.yaml" command="load"/>
-      <!-- Load standard kuka controller joint names from YAML file to parameter server -->
-      <rosparam file="$(find mimic_driver)/config/controller_joint_names_slave2.yaml" command="load"/>
 
       <!-- Load controllers -->
       <node name="joint_state_controller" pkg="controller_manager" type="spawner" respawn="false" output="screen"
