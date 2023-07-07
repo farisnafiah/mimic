@@ -19,6 +19,63 @@ position_trajectory_controller:
     - master_joint_a6
     - master_joint_e1
     - master_joint_e2
+  joint_limits:
+    master_joint_a1:
+      has_velocity_limits: true
+      max_velocity: 2.0
+      has_acceleration_limits: true
+      max_acceleration: 5.0
+      has_jerk_limits: true
+      max_jerk: 10.0
+    master_joint_a2:
+      has_velocity_limits: true
+      max_velocity: 2.0
+      has_acceleration_limits: true
+      max_acceleration: 5.0
+      has_jerk_limits: true
+      max_jerk: 100.0
+    master_joint_a3:
+      has_velocity_limits: true
+      max_velocity: 2.0
+      has_acceleration_limits: true
+      max_acceleration: 5.0
+      has_jerk_limits: true
+      max_jerk: 100.0
+    master_joint_a4:
+      has_velocity_limits: true
+      max_velocity: 2.0
+      has_acceleration_limits: true
+      max_acceleration: 5.0
+      has_jerk_limits: true
+      max_jerk: 100.0
+    master_joint_a5:
+      has_velocity_limits: true
+      max_velocity: 2.0
+      has_acceleration_limits: true
+      max_acceleration: 5.0
+      has_jerk_limits: true
+      max_jerk: 100.0
+    master_joint_a6:
+      has_velocity_limits: true
+      max_velocity: 2.0
+      has_acceleration_limits: true
+      max_acceleration: 5.0
+      has_jerk_limits: true
+      max_jerk: 100.0
+    master_joint_e1:
+      has_velocity_limits: true
+      max_velocity: 2.0
+      has_acceleration_limits: true
+      max_acceleration: 5.0
+      has_jerk_limits: true
+      max_jerk: 100.0
+    master_joint_e2:
+      has_velocity_limits: true
+      max_velocity: 2.0
+      has_acceleration_limits: true
+      max_acceleration: 5.0
+      has_jerk_limits: true
+      max_jerk: 100.0
   state_publish_rate: 250 # Defaults to 50
   action_monitor_rate: 20 # Defaults to 20
   
