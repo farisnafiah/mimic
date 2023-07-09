@@ -1,12 +1,12 @@
 <package>
 
-  <name>kr16_moveit_config</name>
+  <name>kuka_kr16_moveit_config</name>
   <version>0.3.0</version>
   <description>
      An automatically generated package with all the configuration and launch files for using the kuka_kr16_2 with the MoveIt Motion Planning Framework
   </description>
-  <author email="nsdfn@gmail.com">faris</author>
-  <maintainer email="nsdfn@gmail.com">faris</maintainer>
+  <author email="haih@gmail.com">faris</author>
+  <maintainer email="haih@gmail.com">faris</maintainer>
 
   <license>BSD</license>
 

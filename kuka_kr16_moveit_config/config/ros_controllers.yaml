@@ -1,4 +1,4 @@
-manipulator_controller:
+kr16_controller:
   type: position_controllers/JointTrajectoryController
   joints:
     - joint_a1

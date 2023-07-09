@@ -1,5 +1,5 @@
-stomp/manipulator:
-  group_name: manipulator
+stomp/kr16:
+  group_name: kr16
   optimization:
     num_timesteps: 60
     num_iterations: 40

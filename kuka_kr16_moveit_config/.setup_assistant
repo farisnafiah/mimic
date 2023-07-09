@@ -7,5 +7,5 @@ moveit_setup_assistant_config:
     relative_path: config/kuka_kr16_2.srdf
   CONFIG:
     author_name: faris
-    author_email: nsdfn@gmail.com
-    generated_timestamp: 1688819011
+    author_email: haih@gmail.com
+    generated_timestamp: 1688905374
