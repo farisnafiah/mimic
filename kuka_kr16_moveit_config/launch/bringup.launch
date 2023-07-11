@@ -1,3 +1,4 @@
+
 <launch>
   <!-- A convenience launch file that launches all of the required nodes to
        plan and execute motions using RViz, MoveIt and the ros_control based
@@ -41,15 +42,13 @@
 
 
   <!-- main 'driver node': the RSI hardware interface -->
-  <node name="kuka_hardware_interface" pkg="kuka_rsi_hw_interface" type="kuka_hardware_interface_node" respawn="false">
+  <node name="kuka_hardware_interface" pkg="kuka_rsi_hw_interface" type="kuka_hardware_interface_node" respawn="false" output="screen" required="true">
     <!-- remap topics to conform to ROS-I specifications -->
     <remap from="position_trajectory_controller/follow_joint_trajectory" to="/joint_trajectory_action" />
     <remap from="position_trajectory_controller/state" to="/feedback_states" />
     <remap from="position_trajectory_controller/command" to="/joint_path_command"/>
   </node>
 
-  <!-- Load RSI simulation node -->
-  <node name='kuka_rsi_simulator' pkg='kuka_rsi_simulator' type="kuka_rsi_simulator" args="$(arg listen_address) $(arg listen_port)" />
 
   <!-- spawn the actual controllers: note that the names of the controllers must
        correspond to those specified in the rosparam snippet above -->
@@ -63,15 +62,6 @@
   
   <!-- publish the robot state (tf transforms) -->
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
-
-  <include file="$(find kuka_kr16_moveit_config)/launch/move_group.launch">
-    <arg name="publish_monitored_planning_scene" value="true" />
-  </include>
-
-  <include file="$(dirname)/moveit_rviz.launch">
-    <arg name="rviz_config" value="$(dirname)/moveit.rviz"/>
-  </include>
-
 
 
 
