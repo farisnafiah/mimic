@@ -4,7 +4,7 @@
        KUKA RSI driver from the kuka_rsi_hw_interface package.
   --> 
   <!-- Non-standard joint names -->
-  <arg name="listen_address" default="127.0.0.1"/>
+  <arg name="listen_address" default="192.168.1.150"/>
   <arg name="listen_port" default="49152"/>
   <rosparam command="load" file="$(find kuka_kr16_support)/config/joint_names_kr16.yaml" />
   <rosparam subst_value="true">
