@@ -63,18 +63,25 @@
         <joint name="world-world_2" type="fixed">
             <parent link="world" />
             <child link="world_2" />
-            <origin xyz="0.9183 0.721 -4.3402" rpy="0.0 0.0 0.0" />
+            <!-- <origin xyz="0.9183 0.721 -4.3402" rpy="0.0 0.0 0.0" /> -->
+            <origin xyz="1.568554 0.413247 -4.406904" rpy="0.0 0.0 0.0" />
         </joint>
         <joint name="world_2-${prefix_master}kr20_joint" type="fixed">
             <parent link="world_2" />
             <child link="${prefix_master}base_link" />
             <origin xyz="0 0 0" rpy="0.0 0.0 ${radians(-50)}" />
         </joint>
-        <joint name="world_2-${prefix_master}positioner_joint" type="fixed">
+        <!-- <joint name="world_2-${prefix_master}positioner_joint" type="fixed">
             <parent link="world_2" />
             <child link="${prefix_master}positioner_frame" />
-            <!-- <origin xyz="0.0994209235 1.4742 0.3000" rpy="0.0 0.0 ${radians(0)}" /> -->
             <origin xyz="1.1932095 0.8714369 0.3000" rpy="0.0 0.0 ${radians(0)}" />
+        </joint> -->
+        <joint name="world-${prefix_master}positioner_joint" type="fixed">
+            <parent link="world" />
+            <child link="${prefix_master}positioner_frame" />
+            <!-- <origin xyz="0.0994209235 1.4742 0.3000" rpy="0.0 0.0 ${radians(0)}" /> -->
+            <!-- <origin xyz="1.1932095 0.8714369 0.3000" rpy="0.0 0.0 ${radians(0)}" /> -->
+            <origin xyz="2.1034488 1.68886 -3.996878" rpy="0.0 0.0 ${radians(0)}" />
         </joint>
 
 
