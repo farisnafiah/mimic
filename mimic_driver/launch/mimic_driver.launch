@@ -3,7 +3,7 @@
     <arg name="sim" default="true" />
 
     <!-- Load robot description from URDF file to parameter server -->
-    <param name="/robot_description" command="$(find xacro)/xacro '$(find mimic_support)/urdf/mimic.xacro'" />
+    <param name="/robot_description" command="$(find xacro)/xacro '$(find mimic_support)/urdf/mimic_v2.xacro'" />
     
     <group ns="master">
 
