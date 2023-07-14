@@ -41,7 +41,7 @@
             <parent link="world" />
             <child link="${prefix_slave}gantry_frame" />
             <!-- <origin xyz="3.04787 1.209 -4.974558" rpy="0.0 ${radians(0.038)} ${radians(0.211)}" /> -->
-            <origin xyz="3.05881 1.224 -4.98539" rpy="0.0 ${radians(0.038)} ${radians(0.211)}" />
+            <origin xyz="${3.05881-0.011} ${1.224-0.015} ${-4.98539-0.011}" rpy="0.0 ${radians(0.038)} ${radians(0.211)}" />
         </joint>
 
         <joint name="${prefix_slave}gantry-${prefix_slave}kr16_joint" type="fixed">

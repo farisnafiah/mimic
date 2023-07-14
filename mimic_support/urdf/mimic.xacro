@@ -52,7 +52,7 @@
         <joint name="${prefix_slave}kr16-${prefix_slave}ktig_joint" type="fixed">
             <parent link="${prefix_slave}tool0" />
             <child link="${prefix_slave}ktig_eef" />
-            <origin xyz="0.0811 0.04116 0.4408" rpy="${radians(-179.61)} ${radians(-41.39)} ${radians(-153.95)}" />
+            <origin xyz="0.083 0.04227 0.4411" rpy="${radians(1.82)} ${radians(-42.9)} ${radians(-156.2)}" />
             <!-- <origin xyz="0.121 0.05578 0.5307" rpy="${radians(0)} ${radians(-19.95)} ${radians(24.259)}" /> -->
         </joint>
 
