@@ -10,3 +10,5 @@ industrial_core/
 kuka_experimental/
 
 cartesian_controllers/
+
+!kuka_kr16_moveit_config/CMakeLists.txt
