@@ -5,7 +5,7 @@
     <group ns="mimic_master">
 
       <!-- Load robot description from URDF file to parameter server -->
-      <param name="/robot_description" command="$(find xacro)/xacro '$(find mimic_support)/urdf/mimic_master.xacro'" />
+      <param name="/robot_description" command="$(find xacro)/xacro '$(find mimic_support)/urdf/mimic_master_v2.xacro'" />
 
       <rosparam file="$(find mimic_driver)/config/rsi_master_params_sim.yaml" command="load" if="$(arg sim)"/>
       <rosparam file="$(find mimic_driver)/config/rsi_master_params.yaml" command="load" unless="$(arg sim)"/>
@@ -30,7 +30,13 @@
       <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
 
       <!-- Load RSI simulation node -->
-      <node name='kuka_rsi_simulator' pkg='kuka_rsi_simulator' type="kuka_rsi_simulator" args="127.0.0.1 49152" if="$(arg sim)" />
+      <node name='kuka_rsi_simulator' pkg='kuka_rsi_simulator' type="kuka_rsi_simulator" args="127.0.0.1 49152" if="$(arg sim)" output="screen">
+        <!-- <param name="initial_joints" value="[0, -90, 90, -90, 0, 0]"/>
+        <param name="initial_ext_axis" value="[1000, 1850, 1900, 0, 0, 0]"/> -->
+        <param name="initial_joints" value="[0, -90, 90, 0, 0, 0]"/>
+        <param name="initial_ext_axis" value="[0, 0, 0, 0, 0, 0]"/>
+      </node>
+
       
       <!-- Load rviz for visualisation -->
       <node name="rviz" pkg="rviz" type="rviz" args="-d $(find mimic_support)/config/robot_state_visualize.rviz" required="true" />
