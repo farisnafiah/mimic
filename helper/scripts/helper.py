@@ -12,7 +12,7 @@ if __name__ == '__main__':
     rate = rospy.Rate(10.0)
     while not rospy.is_shutdown():
         try:
-            (trans,rot) = listener.lookupTransform('/test_table_origin', '/test_gantryorigin', rospy.Time(0))
+            (trans,rot) = listener.lookupTransform('/test_positioner_side', '/test_slave_gantry_frame', rospy.Time(0))
             (roll, pitch, yaw) = euler_from_quaternion (rot)
             print(trans, rot)
             print(trans, [roll, pitch, yaw])

@@ -3,7 +3,7 @@
     <arg name="sim" default="true" />
 
     <!-- Load robot description from URDF file to parameter server -->
-    <param name="/robot_description" command="$(find xacro)/xacro '$(find mimic_support)/urdf/mimic_v2.xacro'" />
+    <param name="/robot_description" command="$(find xacro)/xacro '$(find mimic_support)/urdf/mimic.xacro'" />
     
     <group ns="master">
 
@@ -29,7 +29,12 @@
       <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
 
       <!-- Load RSI simulation node -->
-      <node name='kuka_rsi_simulator' pkg='kuka_rsi_simulator' type="kuka_rsi_simulator" args="127.0.0.1 49151" if="$(arg sim)" />
+      <node name='kuka_rsi_simulator' pkg='kuka_rsi_simulator' type="kuka_rsi_simulator" args="127.0.0.1 49151" if="$(arg sim)" output="screen">
+        <!-- <param name="initial_joints" value="[0, -90, 90, -90, 0, 0]"/>
+        <param name="initial_ext_axis" value="[1000, 1850, 1900, 0, 0, 0]"/> -->
+        <param name="initial_joints" value="[0, -90, 90, 0, 0, 0]"/>
+        <param name="initial_ext_axis" value="[0, 0, 0, 0, 0, 0]"/>
+      </node>
       
     </group>
 
@@ -57,7 +62,15 @@
       <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
 
       <!-- Load RSI simulation node -->
-      <node name='kuka_rsi_simulator' pkg='kuka_rsi_simulator' type="kuka_rsi_simulator" args="127.0.0.2 49152" if="$(arg sim)" />
+      <!-- <node name='kuka_rsi_simulator' pkg='kuka_rsi_simulator' type="kuka_rsi_simulator" args="127.0.0.2 49152" if="$(arg sim)" /> -->
+      <node name='kuka_rsi_simulator' pkg='kuka_rsi_simulator' type="kuka_rsi_simulator" args="127.0.0.2 49152" if="$(arg sim)" output="screen">
+        <!-- <param name="initial_joints" value="[0, -90, 90, -90, 0, 0]"/>
+        <param name="initial_ext_axis" value="[1000, 1850, 1900, 0, 0, 0]"/> -->
+        <!-- <param name="initial_joints" value="[-77.71, -116.99, 105.18, -226.06, 70.87, 116.10]"/>
+        <param name="initial_ext_axis" value="[1109.18, 2249.99, 1701.00, 0, 0, 0]"/> -->
+        <param name="initial_joints" value="[-85.35, -76.65, 45.38, -239.10, 67.31, 141.17]"/>
+        <param name="initial_ext_axis" value="[1109.18, 2249.99, 1701.00, 0, 0, 0]"/>
+      </node>
      
     </group>
 
