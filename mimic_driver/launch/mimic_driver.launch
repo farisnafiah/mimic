@@ -68,7 +68,7 @@
         <param name="initial_ext_axis" value="[1000, 1850, 1900, 0, 0, 0]"/> -->
         <!-- <param name="initial_joints" value="[-77.71, -116.99, 105.18, -226.06, 70.87, 116.10]"/>
         <param name="initial_ext_axis" value="[1109.18, 2249.99, 1701.00, 0, 0, 0]"/> -->
-        <param name="initial_joints" value="[-85.35, -76.65, 45.38, -239.10, 67.31, 141.17]"/>
+        <param name="initial_joints" value="[-81.36, -78.99, 52.95, -230.27, 63.92, 130.08]"/>
         <param name="initial_ext_axis" value="[1109.18, 2249.99, 1701.00, 0, 0, 0]"/>
       </node>
      

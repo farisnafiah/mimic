@@ -84,8 +84,8 @@
 
 
 
-        <link name="test_positioner_side" />
-        <link name="test_slave_tool0" />
+        <!-- <link name="test_positioner_side" /> -->
+        <!-- <link name="test_slave_tool0" />
         <link name="test_slave_base_link" />
         <link name="test_slave_gantry_frame" />
 
@@ -108,7 +108,7 @@
             <parent link="test_slave_base_link" />
             <child link="test_slave_gantry_frame" />
             <origin xyz="-1.10918 2.24999 -1.70100" rpy="0.0 0.0 0.0"  />
-        </joint>
+        </joint> -->
 
 <!-- 
         positioner side to slave base link
