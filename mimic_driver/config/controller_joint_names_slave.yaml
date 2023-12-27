@@ -1,2 +1,8 @@
 controller_joint_names: ["joint_a1", "joint_a2", "joint_a3", "joint_a4", "joint_a5", "joint_a6", "joint_e1", "joint_e2", "joint_e3"]
 ndof: 9
+
+manipulator_controller_joint_names: ["joint_a1", "joint_a2", "joint_a3", "joint_a4", "joint_a5", "joint_a6"]
+manipulator_ndof: 6
+
+gantry_controller_joint_names: ["joint_e1", "joint_e2", "joint_e3"]
+gantry_ndof: 3
