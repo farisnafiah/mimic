@@ -5,15 +5,18 @@
   --> 
   <!-- Based on this repo: https://github.com/gavanderhoorn/kuka_experimental/tree/kr6r900sixx_moveit_rsi_convenience/kuka_kr6r900sixx_moveit_config -->
   <!-- Non-standard joint names -->
-  <arg name="listen_address" default="127.0.0.1"/>
+
+  
+<arg name="listen_address" default="127.0.0.1"/>
   <arg name="listen_port" default="49152"/>
-  <rosparam command="load" file="$(find kuka_kr16_support)/config/joint_names_kr16.yaml" />
+  <rosparam command="load" file="$(find mimic_driver)/config/controller_joint_names_slave.yaml" />
   <rosparam subst_value="true">
     rsi:
       listen_address: "$(arg listen_address)"
       listen_port: $(arg listen_port)
   </rosparam>
-  <param name="ndof" type="int" value="6"/>
+  <param name="ndof" type="int" value="9"/>
+  <rosparam file="$(find mimic_driver)/config/hardware_controllers_slave.yaml" command="load"/>
   <rosparam subst_value="true">
     joint_state_controller:
       type: joint_state_controller/JointStateController
@@ -30,23 +33,21 @@
         - joint_a6
       state_publish_rate: 250 # Defaults to 50
       action_monitor_rate: 20 # Defaults to 20
-  </rosparam>
+  </rosparam> -->
   <!-- load the robot_description parameter before launching ROS-I nodes -->
-  <include file="$(find kuka_kr16_moveit_config)/launch/planning_context.launch" >
+  <!-- <include file="$(find mimic_slave_moveit_config)/launch/planning_context.launch" >
     <arg name="load_robot_description" value="true" />
-  </include>
-
-
-
+  </include> -->
+      <param name="/robot_description" command="$(find xacro)/xacro '$(find mimic_support)/urdf/mimic_slave.xacro'" />
 
 
 
   <!-- main 'driver node': the RSI hardware interface -->
   <node name="kuka_hardware_interface" pkg="kuka_rsi_hw_interface" type="kuka_hardware_interface_node" respawn="false">
     <!-- remap topics to conform to ROS-I specifications -->
-    <remap from="position_trajectory_controller/follow_joint_trajectory" to="/joint_trajectory_action" />
+    <!-- <remap from="position_trajectory_controller/follow_joint_trajectory" to="/joint_trajectory_action" />
     <remap from="position_trajectory_controller/state" to="/feedback_states" />
-    <remap from="position_trajectory_controller/command" to="/joint_path_command"/>
+    <remap from="position_trajectory_controller/command" to="/joint_path_command"/> -->
   </node>
 
   <!-- Load RSI simulation node -->
@@ -71,9 +72,9 @@
   <!-- publish the robot state (tf transforms) -->
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
 
-  <include file="$(find kuka_kr16_moveit_config)/launch/move_group.launch">
+  <!-- <include file="$(find mimic_slave_moveit_config)/launch/move_group.launch">
     <arg name="publish_monitored_planning_scene" value="true" />
-  </include>
+  </include> -->
 
   <include file="$(dirname)/moveit_rviz.launch">
     <arg name="rviz_config" value="$(dirname)/moveit.rviz"/>
@@ -82,5 +83,5 @@
 
 
 
-
 </launch>
+
