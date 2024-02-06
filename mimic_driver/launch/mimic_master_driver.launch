@@ -22,15 +22,20 @@
       <rosparam file="$(find mimic_driver)/config/controller_joint_names_master.yaml" command="load"/>
 
       <!-- Load controllers -->
-      <node name="joint_state_controller" pkg="controller_manager" type="spawner" respawn="false" output="screen"
-          args="joint_state_controller"/>
       <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen"
-          args="--stopped position_trajectory_controller"/>
+          args="gantry_position_trajectory_controller manipulator_position_trajectory_controller joint_state_controller --shutdown-timeout 1"/>
       <!-- Load robot state publisher -->
       <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
 
+
       <!-- Load RSI simulation node -->
-      <node name='kuka_rsi_simulator' pkg='kuka_rsi_simulator' type="kuka_rsi_simulator" args="127.0.0.1 49152" if="$(arg sim)" />
+      <node name='kuka_rsi_simulator' pkg='kuka_rsi_simulator' type="kuka_rsi_simulator" args="127.0.0.1 49152" if="$(arg sim)" output="screen">
+        <!-- <param name="initial_joints" value="[0, -90, 90, -90, 0, 0]"/>
+        <param name="initial_ext_axis" value="[1000, 1850, 1900, 0, 0, 0]"/> -->
+        <param name="initial_joints" value="[0, -90, 90, 0, 0, 0]"/>
+        <param name="initial_ext_axis" value="[0, 0, 0, 0, 0, 0]"/>
+      </node>
+
       
       <!-- Load rviz for visualisation -->
       <node name="rviz" pkg="rviz" type="rviz" args="-d $(find mimic_support)/config/robot_state_visualize.rviz" required="true" />

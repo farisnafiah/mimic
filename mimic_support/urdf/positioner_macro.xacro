@@ -7,13 +7,13 @@
                 <visual>
                     <origin xyz="0 0 0" rpy="0 0 0"/>
                     <geometry>
-                    <mesh filename="package://mimic_support/meshes/visual/positioner_fixed_nx.dae" scale="0.001 0.001 0.001"/>
+                    <mesh filename="package://mimic_support/meshes/visual/positioner_fixed_nx.dae"/>
                     </geometry>
                 </visual>
                 <collision>
                     <origin xyz="0 0 0" rpy="0 0 0"/>
                     <geometry>
-                    <mesh filename="package://mimic_support/meshes/collision/positioner_fixed_nx.stl" scale="0.001 0.001 0.001"/>
+                    <mesh filename="package://mimic_support/meshes/collision/positioner_fixed_nx.stl"/>
                     </geometry>
                 </collision>   
             </link>
@@ -26,13 +26,13 @@
                 <visual>
                     <origin xyz="0 0 0" rpy="0 0 0"/>
                     <geometry>
-                    <mesh filename="package://mimic_support/meshes/visual/e1_nx.dae" scale="0.001 0.001 0.001"/>
+                    <mesh filename="package://mimic_support/meshes/visual/e1_nx.dae" />
                     </geometry>
                 </visual>
                 <collision>
                     <origin xyz="0 0 0" rpy="0 0 0"/>
                     <geometry>
-                    <mesh filename="package://mimic_support/meshes/collision/e1_nx.stl" scale="0.001 0.001 0.001"/>
+                    <mesh filename="package://mimic_support/meshes/collision/e1_nx.stl" />
                     </geometry>
                 </collision>   
             </link>
@@ -45,13 +45,13 @@
                 <visual>
                     <origin xyz="0 0 0" rpy="0 0 0"/>
                     <geometry>
-                    <mesh filename="package://mimic_support/meshes/visual/e2_nx.dae" scale="0.001 0.001 0.001"/>
+                    <mesh filename="package://mimic_support/meshes/visual/e2_nx.dae" />
                     </geometry>
                 </visual>
                 <collision>
                     <origin xyz="0 0 0" rpy="0 0 0"/>
                     <geometry>
-                    <mesh filename="package://mimic_support/meshes/collision/e2_nx.stl" scale="0.001 0.001 0.001"/>
+                    <mesh filename="package://mimic_support/meshes/collision/e2_nx.stl" />
                     </geometry>
                 </collision>   
             </link>
@@ -60,7 +60,7 @@
             <!-- JOINTS -->
             <!-- joint e1 (E1) -->
             <joint name="${prefix}joint_e1" type="revolute">
-                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/>
                 <parent link="${prefix}positioner_frame"/>
                 <child link="${prefix}e1"/>
                 <axis xyz="1 0 0"/>

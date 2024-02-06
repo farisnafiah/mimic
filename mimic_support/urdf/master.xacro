@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+    <robot name="mimic_master" xmlns:xacro="http://ros.org/wiki/xacro">
+        <xacro:property name="prefix" value="" />
+
+        <xacro:include filename="positioner_macro.xacro"/>
+        <xacro:positioner prefix="${prefix}"/>
+        <xacro:include filename="$(find kuka_kr20_support)/urdf/kr20_r1810_2_macro.xacro" />
+        <xacro:kuka_kr20_r1810_2 prefix="${prefix}"/>
+
+        <link name="${prefix}master_base_link"/>
+        <link name="${prefix}positioner_side"/>
+        
+        <joint name="${prefix}master_base_link-${prefix}positioner_side_joint" type="fixed">
+            <parent link="${prefix}master_base_link" />
+            <child link="${prefix}positioner_side" />
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+        </joint>
+        <joint name="${prefix}positioner_side-${prefix}positioner_frame_joint" type="fixed">
+            <parent link="${prefix}positioner_side" />
+            <child link="${prefix}positioner_frame" />
+            <origin xyz="0.48839 0.390 -0.195" rpy="0.0 0.0 ${radians(0)}" />
+        </joint>
+        <joint name="${prefix}positioner_side-${prefix}base_link" type="fixed">
+            <parent link="${prefix}positioner_side" />
+            <child link="${prefix}base_link" />
+            <origin xyz="-0.7260644 -0.509355 -0.603812" rpy="9.5e-05 -0.00184 -0.90717" />
+        </joint>
+
+    </robot>

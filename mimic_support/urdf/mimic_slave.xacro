@@ -51,6 +51,43 @@
 
 
 
+        <!-- <link name="${prefix}test_table_origin" />
+        <link name="${prefix}test_tool0" />
+        <link name="${prefix}test_base_link" />
+        <link name="${prefix}test_gantryorigin" />
+
+        <joint name="${prefix}world-${prefix}test_table_origin" type="fixed">
+            <parent link="${prefix}world" />
+            <child link="${prefix}test_table_origin" />
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+        </joint>
+        <joint name="${prefix}test_table_origin-${prefix}test_tool0" type="fixed">
+            <parent link="${prefix}test_table_origin" />
+            <child link="${prefix}test_tool0" />
+            <origin xyz="-0.258976 0.4061174 0.6052054" rpy="-2.7021 0.679052 -2.55189" />
+        </joint>
+        <joint name="${prefix}test_table_origin-${prefix}test_base_link" type="fixed">
+            <parent link="${prefix}test_table_origin" />
+            <child link="${prefix}test_base_link" />
+            <origin xyz="0.01143279253690227 1.002313473110201 2.1041297531817538" rpy="-3.1335546594119497 -0.006849724079502045 -0.008069669919757078" />
+        </joint>
+        <joint name="${prefix}test_base_link-${prefix}test_gantryorigin" type="fixed">
+            <parent link="${prefix}test_base_link" />
+            <child link="${prefix}test_gantryorigin" />
+            <origin xyz="-1.12018 2.26499 -1.69" rpy="-3.141592653589793 0.0 0.0" />
+        </joint> -->
+        
+
+
+
+
+
+
+
+
+
+
+
 
 
 
