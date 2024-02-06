@@ -16,9 +16,6 @@
   <!-- Load robot description from URDF file to parameter server -->
   <!-- <param name="/robot_description" command="$(find xacro)/xacro '$(find mimic_support)/urdf/mimic_slave.xacro'" /> -->
 
-
-
-
   <rosparam file="$(find mimic_driver)/config/rsi_slave_params_sim.yaml" command="load" if="$(arg sim)"/>
   <rosparam file="$(find mimic_driver)/config/rsi_slave_params.yaml" command="load" unless="$(arg sim)"/>
 
