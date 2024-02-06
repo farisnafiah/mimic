@@ -25,10 +25,8 @@
       <rosparam file="$(find mimic_driver)/config/hardware_controllers_slave2.yaml" command="load"/>
 
       <!-- Load controllers -->
-      <node name="joint_state_controller" pkg="controller_manager" type="spawner" respawn="false" output="screen"
-          args="joint_state_controller"/>
       <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen"
-          args="--stopped position_trajectory_controller"/>
+          args="position_trajectory_controller joint_state_controller --shutdown-timeout 1"/>
       <!-- Load robot state publisher -->
       <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
 
