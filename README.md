@@ -2,7 +2,8 @@
 This ROS package serves as the driver for the Modular Intelligent Manufacturing and Inspection Cell (MIMIC) located at Nuclear AMRC. The cell aims to showcase the future of automated fabrication by combining:
 * Robotic welding: A KUKA KR16 robot arm mounted on a 3-axis gantry for precise and efficient welding tasks. Both the KR16 and the gantry are controlled by a KRC4 extended controller, acting as the slave robot within the KUKA system.
 * Robotic Inspection: A KUKA KR20 robot arm located on the floor for thorough and reliable inspection of fabricated parts. The KR20 is controlled by a separate KRC4 controller, designated as the master robot in the KUKA system. This KRC4 master also controls a turntable situated in the middle of the cell, used for precise positioning, turning, and tilting of workpieces.
-
+  
+![Full MIMIC.](/docs/media/full_mimic.png)
 ## Organisation
 This repository is comprised of multiple ROS packages, each with different functionalities:
 
