@@ -1,9 +1,0 @@
-controller_list:
-  - name: position_controller
-    action_ns: follow_joint_trajectory
-    type: FollowJointTrajectory
-    default: True
-    joints:
-      - joint_e1
-      - joint_e2
-      - joint_e3
