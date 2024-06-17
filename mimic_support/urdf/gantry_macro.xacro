@@ -7,13 +7,13 @@
                 <visual>
                     <origin xyz="0 0 0" rpy="0 0 0"/>
                     <geometry>
-                    <mesh filename="package://mimic_support/meshes/visual/gantry_fixed.dae" scale="0.001 0.001 0.001"/>
+                    <mesh filename="package://mimic_support/meshes/visual/gantry_fixed.dae" />
                     </geometry>
                 </visual>
                 <collision>
                     <origin xyz="0 0 0" rpy="0 0 0"/>
                     <geometry>
-                    <mesh filename="package://mimic_support/meshes/collision/gantry_fixed.stl" scale="0.001 0.001 0.001"/>
+                    <mesh filename="package://mimic_support/meshes/collision/gantry_fixed.stl" />
                     </geometry>
                 </collision>   
             </link>
@@ -26,13 +26,13 @@
                 <visual>
                     <origin xyz="0 0 0" rpy="0 0 0"/>
                     <geometry>
-                    <mesh filename="package://mimic_support/meshes/visual/gantry_x.dae" scale="0.001 0.001 0.001"/>
+                    <mesh filename="package://mimic_support/meshes/visual/gantry_x.dae" />
                     </geometry>
                 </visual>
                 <collision>
                     <origin xyz="0 0 0" rpy="0 0 0"/>
                     <geometry>
-                    <mesh filename="package://mimic_support/meshes/collision/gantry_x.stl" scale="0.001 0.001 0.001"/>
+                    <mesh filename="package://mimic_support/meshes/collision/gantry_x.stl" />
                     </geometry>
                 </collision>   
             </link>
@@ -45,13 +45,13 @@
                 <visual>
                     <origin xyz="0 0 0" rpy="0 0 0"/>
                     <geometry>
-                    <mesh filename="package://mimic_support/meshes/visual/gantry_y.dae" scale="0.001 0.001 0.001"/>
+                    <mesh filename="package://mimic_support/meshes/visual/gantry_y.dae" />
                     </geometry>
                 </visual>
                 <collision>
                     <origin xyz="0 0 0" rpy="0 0 0"/>
                     <geometry>
-                    <mesh filename="package://mimic_support/meshes/collision/gantry_y.stl" scale="0.001 0.001 0.001"/>
+                    <mesh filename="package://mimic_support/meshes/collision/gantry_y.stl" />
                     </geometry>
                 </collision>   
             </link>
@@ -64,13 +64,13 @@
                 <visual>
                     <origin xyz="0 0 0" rpy="0 0 0"/>
                     <geometry>
-                    <mesh filename="package://mimic_support/meshes/visual/gantry_z.dae" scale="0.001 0.001 0.001"/>
+                    <mesh filename="package://mimic_support/meshes/visual/gantry_z.dae" />
                     </geometry>
                 </visual>
                 <collision>
                     <origin xyz="0 0 0" rpy="0 0 0"/>
                     <geometry>
-                    <mesh filename="package://mimic_support/meshes/collision/gantry_z.stl" scale="0.001 0.001 0.001"/>
+                    <mesh filename="package://mimic_support/meshes/collision/gantry_z.stl" />
                     </geometry>
                 </collision>   
             </link>

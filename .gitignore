@@ -3,7 +3,7 @@
 
 .vscode/settings.json
 
-CMakeLists.txt
+/CMakeLists.txt
 
 industrial_core/
 
